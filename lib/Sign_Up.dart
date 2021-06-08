@@ -173,6 +173,8 @@ class SignUpState extends State<SignUp> {
                             onPressed: trySubmitForm,
                           ),
                           SizedBox(height: 30),
+                          SizedBox(
+                              height: MediaQuery.of(context).viewInsets.bottom)
                         ],
                       ),
                     ),
