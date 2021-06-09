@@ -11,6 +11,7 @@ class SignUpState extends State<SignUp> {
   Color wi = Colors.white;
   Color bla = Colors.black54;
   Color buttonColor = Color.fromRGBO(217, 74, 156, 10);
+  bool _passVisible = true;
 
   final _signUpForm = GlobalKey<FormState>();
 
@@ -117,10 +118,20 @@ class SignUpState extends State<SignUp> {
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: bla, width: 1.0),
                               ),
+                              suffixIcon: IconButton(
+                                onPressed: (){
+                                  setState(() {
+                                    _passVisible = !_passVisible;
+                                  });
+                                },
+                                icon: Icon(
+                                  _passVisible ? Icons.visibility_off : Icons.visibility
+                                ),
+                              )
                             ),
                             keyboardType: TextInputType.visiblePassword,
                             style: TextStyle(color: bla),
-                            obscureText: true,
+                            obscureText: _passVisible,
                             // ignore: missing_return
                             validator: (value) {
                               if (value.trim().isEmpty) {
@@ -137,17 +148,27 @@ class SignUpState extends State<SignUp> {
                           SizedBox(height: 30),
                           TextFormField(
                             decoration: InputDecoration(
-                              labelText: "Re-Password",
-                              labelStyle: TextStyle(fontSize: 15, color: bla),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Colors.purple, width: 1.0),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: bla, width: 1.0),
-                              ),
-                            ),
-                            obscureText: true,
+                                labelText: "Re-Password",
+                                labelStyle: TextStyle(fontSize: 15, color: bla),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Colors.purple, width: 1.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: bla, width: 1.0),
+                                ),
+                                suffixIcon: IconButton(
+                                  onPressed: (){
+                                    setState(() {
+                                      _passVisible = !_passVisible;
+                                    });
+                                  },
+                                  icon: Icon(_passVisible
+                                      ? Icons.visibility_off
+                                      : Icons.visibility),
+                                )),
+                            obscureText: _passVisible,
                             style: TextStyle(color: bla),
                             validator: (value) {
                               if (value.isEmpty) {
