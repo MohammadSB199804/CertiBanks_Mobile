@@ -163,11 +163,11 @@ class _signInState extends State<signIn> {
                       // blk = blk == Colors.black ? Colors.white : Colors.black;
                     });
                   }, color:Colors.white),
-                  IconButton(icon: Icon(Icons.menu), onPressed: (){
-                    setState(() {
-                        null;
-                    });
-                  }, color:Colors.white),
+                  // IconButton(icon: Icon(Icons.menu), onPressed: (){
+                  //   setState(() {
+                  //       null;
+                  //   });
+                  // }, color:Colors.white),
                 ],
                 leading: IconButton(
                   icon: Icon(Icons.arrow_back,color: Colors.white),

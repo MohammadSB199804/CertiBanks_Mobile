@@ -62,6 +62,7 @@ class SignUpState extends State<SignUp> {
                       key: _signUpForm,
                       child: Column(
                         children: [
+                          SizedBox(height: 30),
                           TextFormField(
                             decoration: InputDecoration(
                               labelText: "User Name",
@@ -109,26 +110,26 @@ class SignUpState extends State<SignUp> {
                           SizedBox(height: 30),
                           TextFormField(
                             decoration: InputDecoration(
-                              labelText: "Password",
-                              labelStyle: TextStyle(fontSize: 15, color: bla),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Colors.purple, width: 1.0),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: bla, width: 1.0),
-                              ),
-                              suffixIcon: IconButton(
-                                onPressed: (){
-                                  setState(() {
-                                    _passVisible = !_passVisible;
-                                  });
-                                },
-                                icon: Icon(
-                                  _passVisible ? Icons.visibility_off : Icons.visibility
+                                labelText: "Password",
+                                labelStyle: TextStyle(fontSize: 15, color: bla),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Colors.purple, width: 1.0),
                                 ),
-                              )
-                            ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: bla, width: 1.0),
+                                ),
+                                suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _passVisible = !_passVisible;
+                                    });
+                                  },
+                                  icon: Icon(_passVisible
+                                      ? Icons.visibility_off
+                                      : Icons.visibility),
+                                )),
                             keyboardType: TextInputType.visiblePassword,
                             style: TextStyle(color: bla),
                             obscureText: _passVisible,
@@ -148,26 +149,26 @@ class SignUpState extends State<SignUp> {
                           SizedBox(height: 30),
                           TextFormField(
                             decoration: InputDecoration(
-                                labelText: "Re-Password",
-                                labelStyle: TextStyle(fontSize: 15, color: bla),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.purple, width: 1.0),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: bla, width: 1.0),
-                                ),
-                                suffixIcon: IconButton(
-                                  onPressed: (){
-                                    setState(() {
-                                      _passVisible = !_passVisible;
-                                    });
-                                  },
-                                  icon: Icon(_passVisible
-                                      ? Icons.visibility_off
-                                      : Icons.visibility),
-                                )),
+                              labelText: "Re-Password",
+                              labelStyle: TextStyle(fontSize: 15, color: bla),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.purple, width: 1.0),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: bla, width: 1.0),
+                              ),
+                              // suffixIcon: IconButton(
+                              //   onPressed: (){
+                              //     setState(() {
+                              //       _passVisible = !_passVisible;
+                              //     });
+                              //   },
+                              //   icon: Icon(_passVisible
+                              //       ? Icons.visibility_off
+                              //       : Icons.visibility),
+                              // )
+                            ),
                             obscureText: _passVisible,
                             style: TextStyle(color: bla),
                             validator: (value) {
@@ -183,15 +184,21 @@ class SignUpState extends State<SignUp> {
                             },
                             onChanged: (value) => _confirmPassword = value,
                           ),
-                          ElevatedButton(
-                            onLongPress: null,
-                            child: Text("Sign Up",
-                                style: TextStyle(color: Colors.white)),
-                            style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        buttonColor)),
-                            onPressed: trySubmitForm,
+                          SizedBox(height: 30),
+
+                          ButtonTheme(
+                            // height: 500,
+                            // minWidth : 100,
+                            child:ElevatedButton(
+                              onLongPress: null,
+                              child: Text("Sign Up",
+                                  style: TextStyle(color: Colors.white)),
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                  MaterialStateProperty.all<Color>(
+                                      buttonColor)),
+                              onPressed: trySubmitForm,
+                            ),
                           ),
                           SizedBox(height: 30),
                           SizedBox(
